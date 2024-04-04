@@ -11,7 +11,7 @@ The aim of this simple script is to quickly plot text highlights. It was initial
 So far, the only dependency is [matplotlib](https://matplotlib.org/), which may change once the script is being developed. You install all required dependency using:
 
 ```
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 You will need to install a (monospace) font of your choice. The file must be a `.ttf` format and I recommend '[liberation-mono.ttf](https://www.fontsquirrel.com/fonts/liberation-mono)'.
