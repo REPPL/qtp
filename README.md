@@ -9,7 +9,7 @@ The script reads an arbitrary number of `.txt` files and visualises them on a si
 See below for [setup](#Setup) instruction and how to use the script: 
 
 1. **[Using the script](#Use)**
-2. **[Configuration options](#Configuration Options)**
+2. **[Configuration options](#Configuration_options)**
 
 *(If you have suggestions or ideas for making this script more useful, please experiment with it and/or [get in touch](https://github.com/REPPL).)*
 
@@ -98,7 +98,7 @@ The main task for manual coder is to highlight text snippets. I am still experim
 
 ### Configuration options
 
-At the moment, the only configuration option is to specify whether to 'anonymise' text output. More options may follow in the future; this option should also be moved to be an [optional argument](#Optional arguments), but that's not yet the case.
+At the moment, the only configuration option is to specify whether to 'anonymise' text output. More options may follow in the future; this option should also be moved to be an [optional argument](#Optional_arguments), but that's not yet the case.
 
 
 #### Anonymise text
