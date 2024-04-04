@@ -21,7 +21,7 @@ See below for [setup](#Setup) instruction and how to use the script:
 
 So far, the only dependency is [matplotlib](https://matplotlib.org/). Install required dependency with:
 
-```
+```sh
 pip install -r requirements.txt
 ```
 
@@ -32,7 +32,7 @@ You will need to install your favourite (monospace) font, which must be accessib
 
 Download as a zip file, unzip, and place a single `.ttf` file (e.g.,  `LiberationMono-Regular.ttf`) into the `app/` directory. If you prefer a different font and/or type, make sure to amend the entry in the `app/config.py` file. In that case, search for and amend the following line:
 
-```
+```python
 @dataclass
 class Font:
     name: str = field(default='app/LiberationMono-Regular.ttf')
@@ -46,13 +46,13 @@ class Font:
 Text files must be stored in a project sub-folder within the main `projects/` folder. Consequently, 
 before using the script, you must create a `projects/` folder where all project sub-folders will be located:
 
-```
+```sh
 mkdir projects/
 ```
 
 Then create a **sub-folder for each project**, e.g.,
 
-```
+```sh
 cd projects/
 mkdir test_project/
 ```
@@ -64,7 +64,7 @@ This is where the script will look for `.txt` files to visualise. Depending on t
 
 Execute the script using the following command (assuming use of a virtual environment):
 
-```
+```sh
 python start.py PROJECT_NAME
 ```
 
@@ -83,13 +83,19 @@ Use `python start.py -h` to list optional arguments. Currently, the following ar
 
 The main task for manual coder is to highlight text snippets. I am still experimenting with the best way to highlight text snippets manually and how they are being plotted. *(Look at `app/config.py` for the most recent configuration.)*
 
-**Syntax:** At the moment, I am using the following syntax to highlight text (indicated here by `...`):
+
+#### Syntax
+
+At the moment, I am using the following syntax to highlight text (indicated here by `...`):
 
 1. **Positive:** `[p>[` ... `]]`
 2. **Negative:** `[n>[` ... `]]`
 3. **Generic:** `[[` ... `]]`
 
-**Colours:** Anything thus highlighted will be plotted using the following colours:
+
+#### Colours
+
+Anything thus highlighted will be plotted using the following colours:
 
 1. **Positive:** `#90EE90` *(light green)*
 2. **Negative:** `#FFDAB9` *(light red)*
@@ -105,7 +111,7 @@ At the moment, the only configuration option is to specify whether to 'anonymise
 
 You have the option to overwrite each character with a character of your choice. By default, this option is deactivated and text is **not anonymised**. To change that, go to `app/config.py` and search for the following line:
 
-```
+```python
 @dataclass
 class ProjectBaseClass:
     ...
@@ -117,7 +123,7 @@ class ProjectBaseClass:
 
 Change the default to any character, e.g.,
 
-```
+```python
     overwrite_with: str = field(default='#')
 ```
 
