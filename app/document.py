@@ -10,19 +10,17 @@ class Document():
     specified in `file_name`.
     """
 
-    def __init__(self, file_name, overwrite_with):
+    def __init__(self, file_name, overwrite_with, verbose):
         self.file_name = file_name
         self.overwrite_with = overwrite_with
+        self.verbose = verbose
         self.textbox = None
         self.font = Font()
         self.highlight = Highlight()
 
     @property
     def title(self):
-        try:
-            return self.file_name.split('/')[-1].split('.')[0].upper()
-        except Exception as e:
-            raise f'\nERROR GENERATING DOCUMENT TITLE:\n{e}.'
+        return self.file_name.split('/')[-1].split('.')[0].upper()
 
     @property
     def paragraphs(self):
@@ -54,7 +52,8 @@ class Document():
         return lines
 
     def get_img(self, font_size):
-        print(f'\nGenerating image for "{self.title}" ... ', end='')
+        self._print_status_message(
+            f'Generating image for "{self.title}" ... ')
         y = 0
         line_height = font_size * 1.1
         img = Image.new(
@@ -100,7 +99,7 @@ class Document():
                 x += width
             # Adjust height
             y += line_height
-        print('DONE!')
+        self._print_status_message(None)  # == DONE!
         return img
 
     def set_textbox(self, width, height, colour):
@@ -108,8 +107,8 @@ class Document():
         return True
 
     def calculate_mimimum_font_size(self):
-        print(
-            f'\nCalculating minimum font size for "{self.title}" ... ', end='')
+        self._print_status_message(
+            f'Calculating minimum font size for "{self.title}" ... ')
         while True:
             text = ' '.join(self.paragraphs)
             font = ImageFont.truetype(self.font.name, self.font.size)
@@ -122,7 +121,16 @@ class Document():
                 break
             else:
                 self.font.size -= 1
-        print(f'set to {self.font.size} ... DONE!')
+        self._print_status_message(None)
+        return True
+
+    def _print_status_message(self, message):
+        if self.verbose:
+            return False
+        if not message:
+            print('DONE!')
+        else:
+            print(message, end='')
         return True
 
 
