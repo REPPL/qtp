@@ -9,7 +9,7 @@ The script reads an arbitrary number of `.txt` files and visualises them on a si
 See below for [setup](#Setup) instruction and how to use the script: 
 
 1. **[Using the script](#Use)**
-2. **[Configuration options](#Configuration%20options)**
+2. **[Configuration options](#Configuration)**
 
 *(If you have suggestions or ideas for making this script more useful, please experiment with it and/or [get in touch](https://github.com/REPPL).)*
 
@@ -71,7 +71,7 @@ python start.py PROJECT_NAME
 Stating a `PROJECT_NAME` is mandatory and must match a sub_folder in the main `projects/` folder.
 
 
-### Optional arguments
+### Arguments
 
 Use `python start.py -h` to list optional arguments. Currently, the following arguments are available:
 
@@ -96,9 +96,9 @@ The main task for manual coder is to highlight text snippets. I am still experim
 3. **Generic:** `#FFFF00` *(yellow)*
 
 
-### Configuration options
+### Configuration
 
-At the moment, the only configuration option is to specify whether to 'anonymise' text output. More options may follow in the future; this option should also be moved to be an [optional argument](#Optional%20arguments), but that's not yet the case.
+At the moment, the only configuration option is to specify whether to 'anonymise' text output. More options may follow in the future; this option should also be moved to be an [optional argument](#Arguments), but that's not yet the case.
 
 
 #### Anonymise text
