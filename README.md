@@ -6,10 +6,10 @@ The script reads an arbitrary number of `.txt` files (stored in a `project_folde
 
 ![Example output from five text files.](/example.png)
 
-See below for [setup](Setup) instruction and how to use the script: 
+See below for [setup](#Setup) instruction and how to use the script: 
 
-1. **[Using the script](Use)**: How to use the script
-2. **[Customise the script](Options)**: How to customise the output
+1. **[Using the script](#Use)**: How to use the script
+2. **[Customise the script](#Options)**: How to customise the output
 
 
 ## Setup
@@ -36,7 +36,7 @@ class Font:
 ```
 
 
-## Managing projects
+### Managing projects
 
 Before using the script, you must create a `projects/` folder to store your projects in:
 
