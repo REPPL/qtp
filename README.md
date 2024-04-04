@@ -8,20 +8,25 @@ The script reads an arbitrary number of `.txt` files (stored in a `project_folde
 
 See below for [setup](#Setup) instruction and how to use the script: 
 
-1. **[Using the script](#Use)**: How to use the script
-2. **[Customise the script](#Options)**: How to customise the output
+1. **[Using the script](#Use)**
+2. **[Customise the script](#Options)**
+
+*(If you have suggestions or ideas for making this script more useful, please experiment with it and/or [get in touch](https://github.com/REPPL).)*
 
 
 ## Setup
 
 
-### Installation
+### Install dependencies
 
 So far, the only dependency is [matplotlib](https://matplotlib.org/). Install required dependency with:
 
 ```
 pip install -r requirements.txt
 ```
+
+
+### Install a monospace font
 
 You will need to install your favourite (monospace) font, which must be accessible in `.ttf` format. I recommend the  '[liberation-mono.ttf](https://www.fontsquirrel.com/fonts/liberation-mono)' font.
 
@@ -36,7 +41,7 @@ class Font:
 ```
 
 
-### Managing projects
+### Create a projects folder
 
 Before using the script, you must create a `projects/` folder to store your projects in:
 
@@ -44,7 +49,7 @@ Before using the script, you must create a `projects/` folder to store your proj
 mkdir projects/
 ```
 
-Then create a sub-folder for each project, e.g.,
+Then create a **sub-folder for each project**, e.g.,
 
 ```
 cd projects/
