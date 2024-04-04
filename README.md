@@ -2,14 +2,14 @@
 
 The aim of this simple script is to quickly plot text highlights. It was initially written to compare text snippets extracted by different LLMs, and to compare them with those highlighted by manual coders.
 
-The script reads an arbitrary number of `.txt` files (stored in a `project_folder/`) and visualises them on a single screen:
+The script reads an arbitrary number of `.txt` files and visualises them on a single screen:
 
 ![Example output from five text files.](/example.png)
 
 See below for [setup](#Setup) instruction and how to use the script: 
 
 1. **[Using the script](#Use)**
-2. **[Customise the script](#Options)**
+2. **[Configuration options](#Configuration Options)**
 
 *(If you have suggestions or ideas for making this script more useful, please experiment with it and/or [get in touch](https://github.com/REPPL).)*
 
@@ -43,7 +43,8 @@ class Font:
 
 ### Create a projects folder
 
-Before using the script, you must create a `projects/` folder to store your projects in:
+Text files must be stored in a project sub-folder within the main `projects/` folder. Consequently, 
+before using the script, you must create a `projects/` folder where all project sub-folders will be located:
 
 ```
 mkdir projects/
@@ -56,38 +57,51 @@ cd projects/
 mkdir test_project/
 ```
 
-This is where the script expects the `.txt` files to visualise. Depending on the number of files -- and their length! -- **the output can be messy** as there is currently no way to control the amount of text shown in a single plot. *(As a general rule of thumb, I recommend using no more than 5 files.)*
+This is where the script will look for `.txt` files to visualise. Depending on the number of files -- and their length! -- **the output can be messy** as there is currently no way to control the amount of text shown in a single plot. *(As a general rule of thumb, I recommend using no more than 5 files.)*
 
 
 ## Use
 
-I am still experimenting with the best way to highlight text snippets manually and how they are being plotted. *(Look at `app/config.py` for the most recent configuration.)*
+Execute the script using the following command (assuming use of a virtual environment):
+
+```
+python start.py PROJECT_NAME
+```
+
+Stating a `PROJECT_NAME` is mandatory and must match a sub_folder in the main `projects/` folder.
 
 
-### Syntax
+### Optional arguments
 
-At the moment, I am using the following syntax to highlight text (indicated here by `...`):
+Use `python start.py -h` to list optional arguments. Currently, the following arguments are available:
+
+1. `-s`: Opens the plot in a separate window (in addition to storing it as a `.png` file)
+2. `-v`: Verbose mode
+
+
+### Highlighting text
+
+The main task for manual coder is to highlight text snippets. I am still experimenting with the best way to highlight text snippets manually and how they are being plotted. *(Look at `app/config.py` for the most recent configuration.)*
+
+**Syntax:** At the moment, I am using the following syntax to highlight text (indicated here by `...`):
 
 1. **Positive:** `[p>[` ... `]]`
 2. **Negative:** `[n>[` ... `]]`
 3. **Generic:** `[[` ... `]]`
 
-
-### Colours
-
-Anything thus highlighted will be plotted using the following colours:
+**Colours:** Anything thus highlighted will be plotted using the following colours:
 
 1. **Positive:** `#90EE90` *(light green)*
 2. **Negative:** `#FFDAB9` *(light red)*
 3. **Generic:** `#FFFF00` *(yellow)*
 
 
-## Options
+### Configuration options
 
-At the moment, the only main option is to 'anonymise' text output. More options may follow in the future.
+At the moment, the only configuration option is to specify whether to 'anonymise' text output. More options may follow in the future; this option should also be moved to be an [optional argument](#Optional arguments), but that's not yet the case.
 
 
-### Anonymise text
+#### Anonymise text
 
 You have the option to overwrite each character with a character of your choice. By default, this option is deactivated and text is **not anonymised**. To change that, go to `app/config.py` and search for the following line:
 
