@@ -26,17 +26,34 @@ def main():
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument(
         'name',
-        help='Unique project name required.')
+        help='Unique project name required')
     parser.add_argument(
-        '-s', '--show', action='store_true',
+        '-a', '--anonymise',
+        action='store_const',
+        const='#',
+        default=None,
         required=False,
-        dest='show_output',
-        help='Shows the plot in a separate window'),
+        dest='anonymise',
+        help='Overwrite alphanumerical characters with given value'),
     parser.add_argument(
-        '-v', '--verbose', action='store_true',
+        '-m', '--mix_colours',
+        action='store_true',
+        default=False,
+        required=False,
+        dest='mix_colours',
+        help='Mix colours of multiple highlights (experimental!)'),
+    parser.add_argument(
+        '-s', '--show',
+        action='store_true',
+        required=False,
+        dest='show',
+        help='Show plot in a separate window'),
+    parser.add_argument(
+        '-v', '--verbose',
+        action='store_true',
         required=False,
         dest='verbose',
-        help='Do not print status messages'),
+        help='Print status messages to console'),
     _ = QuickTextPlot(parser.parse_args())
 
 

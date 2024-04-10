@@ -1,4 +1,5 @@
-# Quick text plot
+
+# Quick text plot (qtp)
 
 The aim of this script is to quickly plot text highlights. It was initially written to compare text snippets extracted by different LLMs, and to compare them with those highlighted by manual coders.
 
@@ -61,7 +62,7 @@ This is where the script will look for `.txt` files to visualise. Depending on t
 
 ## Use
 
-Execute the script using the following command (assuming use of a virtual environment):
+Execute the script using the following command (assuming an active virtual environment):
 
 ```sh
 python start.py PROJECT_NAME
@@ -70,60 +71,32 @@ python start.py PROJECT_NAME
 Stating a `PROJECT_NAME` is mandatory and must match one of the sub_folders in the main `projects/` directory.
 
 
-### Arguments
+### Optional arguments
 
-Use `python start.py -h` to list optional arguments. Currently, the following arguments are available:
+Use `python start.py -h` to list optional arguments.
 
-1. `-s`: Opens the plot in a separate window (in addition to storing it as a `.png` file)
-2. `-v`: Verbose mode
+Currently, the following arguments are supported:
+
+1. [`-a`] **Anonymise text:** You have the option to overwrite each character with a character of your choice. By default, this option is deactivated and text is **not anonymised**.
+2. [`-s`] **Show plot:** Show output in separate window, in addition to storing it as a `.png` file
+2. [`-m`] **Mix colours:** Mix colours of multiple highlights *(experimental!)*
+3. [`-v`] **Verbose mode**
 
 
 ### Highlighting text
 
-The main task for manual coder is to highlight text snippets. I am still experimenting with the best way to highlight text snippets manually and how to plot them. *(Look at `app/config.py` for the most recent configuration.)*
+I am still experimenting with the best way to highlight text snippets and how to plot them. *(Look at `app/config.py` for the most recent configuration.)*
+
+**Current syntax:** At the moment, I am using the following syntax to highlight text (indicated here by `...`):
+
+1. **Positive:** `<<p>>` ... `<</p>>`
+2. **Negative:** `<<n>>` ... `<</n>>`
+3. **Generic:** `<<g>>` ... `<</g>>`
+
+**Colours:** Anything thus marked is highlighted using the following colours:
+
+2. **Generic:** `(243, 235, 8, 155)` *(yellow)*
+3. **Positive:** `(8, 243, 15, 155)` *(green)*
+4. **Negative:** `(243, 8, 64, 155)` *(red)*
 
 
-#### Syntax
-
-At the moment, I am using the following syntax to highlight text (indicated here by `...`):
-
-1. **Positive:** `[p>[` ... `]]`
-2. **Negative:** `[n>[` ... `]]`
-3. **Generic:** `[[` ... `]]`
-
-
-#### Colours
-
-Anything thus marked is highlighted using the following colours:
-
-1. **Positive:** `#90EE90` *(light green)*
-2. **Negative:** `#FFDAB9` *(light red)*
-3. **Generic:** `#FFFF00` *(yellow)*
-
-
-### Configuration
-
-At the moment, the only configuration option is to specify whether to 'anonymise' text output. More options may follow in the future; this option should also be moved to be an [optional argument](#Arguments), but that's not yet the case.
-
-
-#### Anonymise text
-
-You have the option to overwrite each character with a character of your choice. By default, this option is deactivated and text is **not anonymised**. To change that, go to `app/config.py` and search for the following line:
-
-```python
-@dataclass
-class ProjectBaseClass:
-    ...
-    ...
-    overwrite_with: str = field(default=None)
-    ...
-    ...
-```
-
-Change the default to any character, e.g.,
-
-```python
-overwrite_with: str = field(default='#')
-```
-
-*(This will overwrite every alphanumerical character with `#`.)*
